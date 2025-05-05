@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 const habitsList = [
   "Me suis levé à l'heure prévue",
@@ -6,7 +6,7 @@ const habitsList = [
   "Ai respecté ma journée sans impulsivité",
   "Ai tenu mon journal de trading",
   "Ai fait une pause entre les sessions"
-];
+]
 
 const checklistItems = [
   "Checked economic calendar",
@@ -20,32 +20,32 @@ const checklistItems = [
   "Journal updated",
   "Emotion tracked",
   "Trade screenshots taken"
-];
+]
 
 export default function TradingDisciplineApp() {
-  const [habits, setHabits] = useState(Array(habitsList.length).fill(false));
-  const [checklist, setChecklist] = useState(Array(checklistItems.length).fill(false));
+  const [habits, setHabits] = useState(Array(habitsList.length).fill(false))
+  const [checklist, setChecklist] = useState(Array(checklistItems.length).fill(false))
 
   const toggleHabit = i => {
-    const copy = [...habits];
-    copy[i] = !copy[i];
-    setHabits(copy);
-  };
+    const copy = [...habits]
+    copy[i] = !copy[i]
+    setHabits(copy)
+  }
 
   const toggleChecklist = i => {
-    const copy = [...checklist];
-    copy[i] = !copy[i];
-    setChecklist(copy);
-  };
+    const copy = [...checklist]
+    copy[i] = !copy[i]
+    setChecklist(copy)
+  }
 
   const getScore = () => {
-    const total = habits.filter(Boolean).length + checklist.filter(Boolean).length;
-    const score = Math.round((total / (habits.length + checklist.length)) * 100);
-    return `${score}% discipline`;
-  };
+    const total = habits.filter(Boolean).length + checklist.filter(Boolean).length
+    const score = Math.round((total / (habits.length + checklist.length)) * 100)
+    return `${score}% discipline`
+  }
 
   return (
-    <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
+    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
       <h1>🧠 Trading Discipline Tracker</h1>
 
       <h2>🗓 Habitudes quotidiennes</h2>
@@ -66,5 +66,5 @@ export default function TradingDisciplineApp() {
 
       <h3>Discipline Score: {getScore()}</h3>
     </div>
-  );
+  )
 }
